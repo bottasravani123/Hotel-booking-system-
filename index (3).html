@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Hotel Booking System</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f4f4;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 500px;
+            background: white;
+            padding: 20px;
+            margin: auto;
+            border-radius: 10px;
+            box-shadow: 0 0 10px gray;
+        }
+
+        h2 {
+            text-align: center;
+        }
+
+        input, select {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            margin-bottom: 15px;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            background: green;
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background: darkgreen;
+        }
+
+        #result {
+            margin-top: 20px;
+            font-weight: bold;
+            color: blue;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>Hotel Booking System</h2>
+
+    <label>Full Name</label>
+    <input type="text" id="name" placeholder="Enter your name">
+
+    <label>Check-In Date</label>
+    <input type="date" id="checkin">
+
+    <label>Check-Out Date</label>
+    <input type="date" id="checkout">
+
+    <label>Room Type</label>
+    <select id="room">
+        <option>Single Room</option>
+        <option>Double Room</option>
+        <option>Deluxe Room</option>
+        <option>Suite Room</option>
+    </select>
+
+    <button onclick="bookRoom()">Book Now</button>
+
+    <p id="result"></p>
+</div>
+
+<script>
+function bookRoom() {
+    let name = document.getElementById("name").value;
+    let checkin = document.getElementById("checkin").value;
+    let checkout = document.getElementById("checkout").value;
+    let room = document.getElementById("room").value;
+
+    if(name === "" || checkin === "" || checkout === "") {
+        alert("Please fill all fields");
+        return;
+    }
+
+    document.getElementById("result").innerHTML =
+        "Booking Confirmed!<br>" +
+        "Guest: " + name + "<br>" +
+        "Room: " + room + "<br>" +
+        "Check-In: " + checkin + "<br>" +
+        "Check-Out: " + checkout;
+}
+</script>
+
+</body>
+</html>
